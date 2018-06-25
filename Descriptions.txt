@@ -1,0 +1,3 @@
+This is an extension to check if Hampton Brandon is live on YouTube and check his twitter feed. 
+ - The extension icon will be Red if Hampton is live, and Black if he is not.
+ - It will check if the ChaizyChannel is live every 5 minute.
