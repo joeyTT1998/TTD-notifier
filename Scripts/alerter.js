@@ -22,10 +22,11 @@ function search() {
     $.get("https://www.googleapis.com/youtube/v3/search", data, function (response) {
         results = response.items;
         if (results.length == 0) {
-            //$('#resultsDiv').text('Hampton Brandon is offline now');
+            console.log('Hampton Brandon is offline now');
             chrome.browserAction.setIcon({ "path": "/icon/TTD_Black_16.png" });
+	 
         } else {
-           // $('#resultsDiv').text('Hampton Brandon is online now');
+            console.log('Hampton Brandon is online now');
             chrome.browserAction.setIcon({ "path": "/icon/TTD_Red_16.png" });
         }
     });     
