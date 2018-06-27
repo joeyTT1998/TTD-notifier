@@ -3,6 +3,13 @@ var myAlarm = {
     delayInMinutes: 5,
     periodInMinutes:5
 }
+var myNotification={
+	type : "basic",
+	iconUrl :"/icon/TTD_Red_16.png",
+	message : "Hampton Brandon is live",
+	title: "TTD notification",
+	requireInteraction : true
+}
 chrome.alarms.create("timer1", myAlarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === "timer1") {
@@ -27,7 +34,7 @@ function search() {
 			live = 0;
         } else {
 			if(live===0){
-				alert('Hampton Brandon is live');
+				chrome.notifications.create(myNotification);
 				chrome.browserAction.setIcon({ "path": "/icon/TTD_Red_16.png" });
 				live=1;
 			}
