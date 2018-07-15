@@ -1,32 +1,31 @@
 ﻿{
-  "name": "TTD Notifier",
-  "description": "An extensions that shows you updates from Hampton Brandon",
-  "version": "1.05",
-  "manifest_version": 2,
-  "browser_action": {
-    "default_popup": "main.html",
-    "default_icon": {
-      "16": "/icon/TTD_Black_16.png",
-      "32": "/icon/TTD_Black_32.png",
-      "128": "/icon/TTD_Black_128.png"
+    "name": "TTD Notifier",
+    "short_name": "TTD_N",
+    "description": "An extensions that shows you updates from Hampton Brandon",
+    "version": "1.0.6",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_title": "TTD Notifier",
+        "default_popup": "main.html",
+        "default_icon": {
+            "16": "/icon/TTD_Black_16.png",
+            "32": "/icon/TTD_Black_32.png",
+            "128": "/icon/TTD_Black_128.png"
+        },
+        "icons": {
+            "16": "/icon/TTD_Black_16.png",
+            "32": "/icon/TTD_Black_32.png",
+            "128": "/icon/TTD_Black_128.png"
+        }
     },
-    "icons": {
-      "16": "/icon/TTD_Black_16.png",
-      "32": "/icon/TTD_Black_32.png",
-      "128": "/icon/TTD_Black_128.png"
-
-    }
-  },
-  "background": {
-    "scripts": [
+    "background": {
+        "scripts": [
       "/Scripts/jquery-3.3.1.min.js",
       "/Scripts/alerter.js"
     ],
-    "persistent": true
-  },
-  "content_security_policy": "script-src 'self' https://apis.google.com/ https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
-  "permissions":["alarms","notifications"]
+        "persistent": true
+    },
+    "content_security_policy": "script-src 'self' https://apis.google.com/ https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
+    "permissions": ["alarms", "notifications"]
 
 }
-
-
