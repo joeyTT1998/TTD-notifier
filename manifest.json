@@ -1,9 +1,11 @@
 ﻿{
     "name": "TTD Notifier",
+    "short_name": "TTD_N",
     "description": "An extensions that shows you updates from Hampton Brandon",
-    "version": "1.06",
+    "version": "1.0.6",
     "manifest_version": 2,
     "browser_action": {
+        "default_title": "TTD Notifier",
         "default_popup": "main.html",
         "default_icon": {
             "16": "/icon/TTD_Black_16.png",
@@ -14,7 +16,6 @@
             "16": "/icon/TTD_Black_16.png",
             "32": "/icon/TTD_Black_32.png",
             "128": "/icon/TTD_Black_128.png"
-
         }
     },
     "background": {
