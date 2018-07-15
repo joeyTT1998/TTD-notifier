@@ -20,6 +20,15 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
     }
 });
 
+chrome.notifications.onClicked.addListener(function (notificationId) {
+    chrome.tabs.create({
+        url: notificationId
+    });
+
+    chrome.notifications.clear(channelUrl);
+});
+
+
 search();
 
 function search() {
@@ -45,14 +54,6 @@ function search() {
         } else {
             if (live === 0) {
                 chrome.notifications.create(channelUrl, myNotification);
-                chrome.notifications.onClicked.addListener(function (notificationId) {
-                    chrome.tabs.create({
-                        url: notificationId
-                    });
-
-                    chrome.notifications.clear(channelUrl);
-                });
-
                 chrome.browserAction.setIcon({
                     "path": "/icon/TTD_Red_16.png"
                 });
