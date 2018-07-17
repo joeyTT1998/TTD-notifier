@@ -28,7 +28,6 @@ chrome.notifications.onClicked.addListener(function (notificationId) {
     chrome.notifications.clear(channelUrl);
 });
 
-
 search();
 
 function search() {
@@ -45,6 +44,8 @@ function search() {
         results = response.items;
 
         if (results.length == 0) {
+            //            localStorage.setItem("liveStatus", "0");
+
             console.log('Hampton Brandon is offline now');
             chrome.browserAction.setIcon({
                 "path": "/icon/TTD_Black_16.png"
@@ -53,6 +54,8 @@ function search() {
             live = 0;
         } else {
             if (live === 0) {
+                localStorage.setItem("liveStatus", "1");
+
                 chrome.notifications.create(channelUrl, myNotification);
                 chrome.browserAction.setIcon({
                     "path": "/icon/TTD_Red_16.png"
