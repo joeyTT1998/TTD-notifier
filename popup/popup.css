@@ -1,0 +1,60 @@
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+    background: #263238;
+    color: #ffffff;
+    width: 384px;
+    margin: 0px;
+}
+
+a:link,
+a:visited {
+    color: whitesmoke;
+    outline: 0;
+    text-decoration: none;
+}
+
+.flex-container {
+    margin: 9px 4px 0px 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 15px;
+}
+
+.flex {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    width 120px;
+    text-align: center;
+}
+
+.flex:hover,
+.flex-chat:hover {
+    opacity: 0.4;
+}
+
+.flex .fas,
+.flex .fab {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.flex p {
+    font-size: 12px;
+}
+
+.status-container h1 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    margin: 0;
+    margin-top: 4px;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+hr {
+    margin: 6px 0px;
+    border-width: 0.3px;
+}
