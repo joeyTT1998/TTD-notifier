@@ -1,31 +1,38 @@
 ﻿{
     "name": "TTD Notifier",
-    "short_name": "TTD_N",
+    "short_name": "TTD",
     "description": "An extensions that shows you updates from Hampton Brandon",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "manifest_version": 2,
     "browser_action": {
         "default_title": "TTD Notifier",
-        "default_popup": "main.html",
+        "default_popup": "popup/popup.html",
         "default_icon": {
             "16": "/icon/TTD_Black_16.png",
             "32": "/icon/TTD_Black_32.png",
+            "48": "/icon/TTD_Black_48.png",
             "128": "/icon/TTD_Black_128.png"
         },
         "icons": {
             "16": "/icon/TTD_Black_16.png",
             "32": "/icon/TTD_Black_32.png",
+            "48": "/icon/TTD_Black_48.png",
             "128": "/icon/TTD_Black_128.png"
         }
     },
     "background": {
         "scripts": [
-      "/Scripts/jquery-3.3.1.min.js",
-      "/Scripts/alerter.js"
+      "/scripts/jquery-3.3.1.min.js",
+      "/scripts/alerter.js"
     ],
         "persistent": true
     },
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": false
+    },
+
     "content_security_policy": "script-src 'self' https://apis.google.com/ https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
-    "permissions": ["alarms", "notifications"]
+    "permissions": ["alarms", "notifications", "storage"]
 
 }
