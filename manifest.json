@@ -2,7 +2,7 @@
     "name": "TTD Notifier",
     "short_name": "TTD",
     "description": "A chrome extension that shows you updates from Hampton Brandon",
-    "version": "1.0.8",
+    "version": "1.07,
     "manifest_version": 2,
     "browser_action": {
         "default_title": "TTD Notifier",
