@@ -1,0 +1,63 @@
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+    background: #263238;
+    color: #ffffff;
+    width: 384px;
+    margin: 0px;
+}
+
+a:link,
+a:visited {
+    color: whitesmoke;
+    outline: 0;
+    text-decoration: none;
+}
+
+.flex-container {
+    margin: 6px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 15px;
+}
+
+.flex {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    text-align: center;
+}
+
+.flex:hover,
+.flex-chat:hover {
+    opacity: 0.4;
+}
+
+.flex .fas,
+.flex .fab {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.flex p {
+    font-size: 10px;
+}
+
+#options {
+    float: right;
+    margin: 4px;
+}
+
+.twitter-container {
+    margin: 0px;
+}
+
+.footer {
+    margin: 0px 0px 5px 0px;
+}
+
+.footer a {
+    font-size: 12px;
+    text-align: center;
+    display: block;
+
+}
