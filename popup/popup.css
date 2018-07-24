@@ -15,7 +15,7 @@ a:visited {
 }
 
 .flex-container {
-    margin: 9px 4px 0px 4px;
+    margin: 8px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
     padding: 4px 15px;
@@ -24,7 +24,7 @@ a:visited {
 .flex {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
-    width 120px;
+    width: 120px;
     text-align: center;
 }
 
@@ -46,4 +46,16 @@ a:visited {
 #options {
     float: right;
     margin: 4px;
+}
+
+.twitter-container{
+    margin: 0px;
+}
+
+.footer{
+    margin: 0px 0px 2px 4px;
+}
+
+.footer a{
+    font-size: 10px;
 }
