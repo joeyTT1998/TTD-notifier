@@ -16,6 +16,13 @@
             "128": "/icon/128_Black.png"
         }
     },
+    "icons": {
+            "16": "/icon/16_Black.png",
+            "32": "/icon/32_Black.png",
+            "48": "/icon/48_Black.png",
+            "64": "/icon/64_Black.png",
+            "128": "/icon/128_Black.png"
+    },
     "background": {
         "scripts": [
             "/Scripts/jquery-3.3.1.min.js",
