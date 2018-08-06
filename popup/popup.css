@@ -3,8 +3,14 @@ html {
     font-family: 'Open Sans', sans-serif;
     background: #263238;
     color: #ffffff;
-    width: 384px;
+    width: 390px;
     margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a:focus{
+    outline: 0;
 }
 
 a:link,
@@ -12,25 +18,27 @@ a:visited {
     color: whitesmoke;
     outline: 0;
     text-decoration: none;
+    margin: 0px;
 }
 
 .flex-container {
-    margin: 6px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
     padding: 4px 15px;
 }
 
 .flex {
+    margin: 0px;
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
     text-align: center;
 }
 
-.flex:hover,
-.flex-chat:hover {
+.hover-fade:hover{
     opacity: 0.4;
 }
+
 
 .flex .fas,
 .flex .fab {
@@ -42,9 +50,46 @@ a:visited {
     font-size: 10px;
 }
 
-#options {
-    float: right;
-    margin: 4px;
+hr {
+    border: none;
+    height: 0.5px;
+    background-color:whitesmoke; 
+    margin: 0px;
+}
+
+.header{
+    margin: 0px;  
+    padding: 9px 15px 6px 15px;
+}
+
+#live-status{
+    font-size: 14px;
+    font-weight: bolder;
+    margin: 0px;
+    background-color: red;
+    color: whitesmoke;
+    padding: 3px 4px 3px 6px;
+    border: none;
+    border-radius: 15px;
+}
+
+#options{
+    font-size: 13px;
+    position: absolute;
+    right: 18px;
+    cursor: pointer;
+    top: 7px;
+    padding: 4px;
+}
+
+#live-status:active {
+  transform: translateY(1px);
+}
+
+#last-seen{
+    font-size: 11px;
+    margin: 0px;
+    text-align: left;
 }
 
 .twitter-container {
@@ -59,5 +104,4 @@ a:visited {
     font-size: 12px;
     text-align: center;
     display: block;
-
 }

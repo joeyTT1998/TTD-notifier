@@ -2,35 +2,24 @@
 <html>
 
 <head>
-    <title>TTD Notifier</title>
+    <title>Options</title>
     <link href="options.css" rel="stylesheet" type="text/css">
-    <script src="options.js"></script>
 </head>
 
 <body>
 
-    <h1>
-        TTD Notifier
-    </h1>
-
-    <form>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Play sound on notification</td>
-                    <td>
-                        <input type="checkbox" name="chkboxNotifySnd">
-                    </td>
-                </tr>
-            </tbody>
-
-        </table>
+    <form id="options">
+        <label>
+            Play sound on notification
+            <input type="checkbox" name="playSound">
+        </label>
+        <label>
+            Volume
+            <input type="range" min="1" max="100" value="50" class="slider" id="volumeRange">
+        </label>
     </form>
 
-    <div id="status"></div>
-
-    <button id="save">Save</button>
-
+    <script src="options.js"></script>
 </body>
 
 </html>
