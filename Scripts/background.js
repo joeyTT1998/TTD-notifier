@@ -1,11 +1,18 @@
 ﻿const channelUrl = "https://gaming.youtube.com/user/theCHAIZYchannel/live";
 
+var notificationSound = new Audio("sounds/live.mp3");
+
 localStorage.isLive = false;
+localStorage.playNotificationSound = true;
 
 var myAlarm = {
     delayInMinutes: 1,
     periodInMinutes: 1
 };
+
+chrome.browserAction.setBadgeBackgroundColor({
+    "color": "red"
+});
 
 chrome.alarms.create("liveCheckTimer", myAlarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
@@ -23,49 +30,69 @@ chrome.notifications.onClicked.addListener(function (notificationId) {
 });
 
 const displayNotificaton = function () {
-    var currentTime = new Date().toLocaleTimeString('en-US', {
+    let currentTime = new Date().toLocaleTimeString("en-US", {
         hour12: false,
         hour: "numeric",
         minute: "numeric"
     });
 
-    chrome.notifications.create('onlineNotification', {
-        type: 'basic',
-        title: 'TTD Notifier',
-        message: 'Hampton Brandon is live.',
+    if(JSON.parse(localStorage.playNotificationSound) === true){
+        notificationSound.volume = 0.5;
+        notificationSound.play();
+    }
+
+    chrome.notifications.create("onlineNotification", {
+        type: "basic",
+        title: "TTD Notifier",
+        message: "Hampton Brandon is live.",
         contextMessage: currentTime,
         iconUrl: "/icon/128_Red.png",
         requireInteraction: true
     });
 }
 
-const checkIsLive = function () {
-    $.get('https://suspects.me/api/streamer/hmptn/stream', function (data) {
-        console.log(data);
-
-        if (data.error) {
-            console.log("Streamer not found");
-        } else if (data.data && data.data.isLive) {
-            if (JSON.parse(localStorage.isLive) === false) {
-                console.log("Brandon is online");
-                displayNotificaton();
-                localStorage.isLive = true;
-
-                chrome.browserAction.setIcon({
-                    "path": "/icon/16_Red.png"
-                });
-            }
-        } else {
-            console.log("Brandon is offline");
-            localStorage.isLive = false;
-
-            chrome.browserAction.setIcon({
-                "path": "/icon/128_Black.png"
-            });
-        }
-
-        //updateIcon();
+const updateBadge = function (message) {
+    chrome.browserAction.setBadgeText({
+        "text": message
     });
+}
+
+const updateIcon = function () {
+    console.log(JSON.parse(localStorage.isLive));
+    let iconPath = JSON.parse(localStorage.isLive) ? "/icon/128_Red.png" : "/icon/128_Black.png";
+
+    chrome.browserAction.setIcon({
+        "path": iconPath
+    });
+}
+
+const checkIsLive = function () {
+    fetch("https://suspects.me/api/streamer/hmptn/stream")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (res) {
+            console.log(res);
+
+            if (res.error) {
+                console.error(res.message || "Streamer not found");
+            } else if (res.data && res.data.isLive) {
+                if (JSON.parse(localStorage.isLive) === false) {
+                    console.log("Brandon is online");
+                    localStorage.isLive = true;
+                    displayNotificaton();
+
+                    updateBadge("LIVE!");
+                }
+            } else {
+                console.log("Brandon is offline");
+                localStorage.isLive = false;
+                localStorage.lastSeen = res.data.lastUpdate;
+
+                updateBadge("");
+            }
+        });
+
 }
 
 checkIsLive();
