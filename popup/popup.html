@@ -3,55 +3,65 @@
 
 <head>
     <link href="popup.css" rel="stylesheet">
-
     <script src="https://platform.twitter.com/widgets.js"></script>
-    <script src="/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="popup.js" type="text/javascript">j</script>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Open+Sans:600" rel="stylesheet">
 </head>
 
 <body>
+    <div class="header">
+        <button id="live-status" class="hover-fade">
+            <a href="https://gaming.youtube.com/user/theCHAIZYchannel/live" target="_blank">LIVE!</a>
+        </button>
+        <a href="https://www.youtube.com/channel/UCY0ERE1COsjRbitufDMAXjQ" id="last-seen" class="hover-fade" target="_blank"></a>     
+        <i class="fas fa-cog hover-fade" id="options"></i>  
+    </div>
 
     <div class="flex-container">
-
-        <div class="flex">
+        <div class="flex hover-fade">
             <a href="https://gaming.youtube.com/user/theCHAIZYchannel/live" target="_blank">
                 <i class="fab fa-youtube"></i>
                 <p>YouTube</p>
             </a>
         </div>
 
-        <div class="flex">
+        <div class="flex hover-fade">
+            <a href="https://www.youtube.com/channel/UCY0ERE1COsjRbitufDMAXjQ" target="_blank">
+                <i class="fas fa-video"></i>
+                <p>VODS</p>
+            </a>
+        </div>
+
+        <div class="flex hover-fade">
             <a href="https://www.reddit.com/r/hamptonbrandon/" target="_blank">
                 <i class="fab fa-reddit-alien"></i>
                 <p>Reddit</p>
             </a>
         </div>
 
-        <div class="flex">
+        <div class="flex hover-fade">
             <a href="https://twitter.com/hamptonbrando" target="_blank">
                 <i class="fab fa-twitter"></i>
                 <p>Twitter</p>
             </a>
         </div>
 
-        <div class="flex">
+        <div class="flex hover-fade">
             <a href="https://discordapp.com/invite/dYvWwfr" target="_blank">
                 <i class="fab fa-discord"></i>
                 <p>Discord</p>
             </a>
         </div>
 
-        <div class="flex">
+        <div class="flex hover-fade">
             <a href="https://www.instagram.com/hmptnbrndn/?hl=en" target="_blank">
                 <i class="fab fa-instagram"></i>
                 <p>Instagram</p>
             </a>
         </div>
 
-        <div class="flex">
+        <div class="flex hover-fade">
             <a href="https://streamlabs.com/chaizy1" target="_blank">
                 <i class="fas fa-donate"></i>
                 <p>Donate</p>
@@ -59,14 +69,18 @@
         </div>
     </div>
 
+    <hr>
+
     <div class="twitter-container">
-        <a class="twitter-timeline" href="https://twitter.com/hamptonbrando?ref_src=twsrc%5Etfw" data-theme="dark" data-tweet-limit="1" data-link-color="#00F" data-height="90" data-chrome="nofooter transparent noscrollbar noheader" lang="EN">Tweets by hamptonbrando</a>
+        <a class="twitter-timeline" href="https://twitter.com/hamptonbrando?ref_src=twsrc%5Etfw" data-theme="dark" data-tweet-limit="1"
+            data-link-color="#00F" data-height="90" data-chrome="nofooter transparent noscrollbar noheader" lang="EN">Tweets by hamptonbrando</a>
     </div>
 
     <div class="footer">
-        <a href="https://suspects.me" target="_blank">suspects.me</a>
+        <a href="https://suspects.me" target="_blank" class="hover-fade">suspects.me</a>
     </div>
 
+    <script src="popup.js" type="text/javascript"></script>
 </body>
 
 </html>
