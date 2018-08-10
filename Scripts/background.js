@@ -4,6 +4,8 @@ var notificationSound = new Audio("sounds/live.mp3");
 
 localStorage.isLive = false;
 localStorage.playNotificationSound = true;
+localStorage.notificationVol = 40;
+localStorage.iconThemeDark = 0;
 
 var myAlarm = {
     delayInMinutes: 1,
@@ -17,7 +19,7 @@ chrome.browserAction.setBadgeBackgroundColor({
 chrome.alarms.create("liveCheckTimer", myAlarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === "liveCheckTimer") {
-        checkIsLive();
+        checkIfLive();
     }
 });
 
@@ -36,8 +38,8 @@ const displayNotificaton = function () {
         minute: "numeric"
     });
 
-    if(JSON.parse(localStorage.playNotificationSound) === true){
-        notificationSound.volume = 0.5;
+    if (JSON.parse(localStorage.playNotificationSound) === true) {
+        notificationSound.volume = JSON.parse(localStorage.notificationVol) / 100;
         notificationSound.play();
     }
 
@@ -66,33 +68,28 @@ const updateIcon = function () {
     });
 }
 
-const checkIsLive = function () {
+const checkIfLive = function () {
     fetch("https://suspects.me/api/streamer/hmptn/stream")
         .then(function (response) {
             return response.json();
         })
         .then(function (res) {
             console.log(res);
-
             if (res.error) {
                 console.error(res.message || "Streamer not found");
             } else if (res.data && res.data.isLive) {
                 if (JSON.parse(localStorage.isLive) === false) {
                     console.log("Brandon is online");
                     localStorage.isLive = true;
-                    displayNotificaton();
-
                     updateBadge("LIVE!");
                 }
             } else {
                 console.log("Brandon is offline");
                 localStorage.isLive = false;
                 localStorage.lastSeen = res.data.lastUpdate;
-
                 updateBadge("");
             }
         });
-
 }
 
-checkIsLive();
+checkIfLive();

@@ -3,7 +3,16 @@ document.getElementById("options").addEventListener("click", openOptions);
 var getLastSeen = function() {
     let hours = ((new Date().getTime() - (new Date(localStorage.lastSeen)).getTime()) / (1000 * 60 * 60));
     let mins = (hours * 10) * 6 + 3;
-    return hours < 1.0 ? Math.round(mins) + "m ago" : Math.round(hours)+ "h ago";
+
+    if(hours < 1.0){
+        return Math.round(mins) + "m ago";
+    }
+    else if(hours >= 24){
+        return Math.round(hours / 24) + "d ago";
+    }
+    else {
+        return Math.round(hours)+ "h ago";
+    }
 }
 
 var updateOnlineStatus = function() {

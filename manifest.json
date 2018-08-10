@@ -7,17 +7,14 @@
     "browser_action": {
         "default_title": "TTD Notifier",
         "default_popup": "popup/popup.html",
-        "default_icon": "/icon/128_Black.png",
-        "icons": {
-            "16": "/icon/16_Black.png",
-            "32": "/icon/32_Black.png",
-            "48": "/icon/48_Black.png",
-            "64": "/icon/64_Black.png",
-            "128": "/icon/128_Black.png"
-        }
+        "default_icon": "/icon/128_Black.png"
     },
     "icons": {
-            "48": "/icon/48_Black.png"
+        "16": "/icon/16_Black.png",
+        "32": "/icon/32_Black.png",
+        "48": "/icon/48_Black.png",
+        "64": "/icon/64_Black.png",
+        "128": "/icon/128_Black.png"
     },
     "background": {
         "scripts": [
@@ -28,8 +25,7 @@
     "options_ui": {
         "page": "options/options.html",
         "open_in_tab": false
-      },
-    "content_security_policy": "script-src 'self' https://apis.google.com/ https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
+    },
+    "content_security_policy": "script-src 'self' https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
     "permissions": ["alarms", "notifications", "storage", "https://suspects.me/*"]
-
 }

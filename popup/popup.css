@@ -39,10 +39,9 @@ a:visited {
     opacity: 0.4;
 }
 
-
 .flex .fas,
 .flex .fab {
-    font-size: 30px;
+    font-size: 28px;
     color: whitesmoke;
 }
 
@@ -74,12 +73,13 @@ hr {
 }
 
 #options{
-    font-size: 13px;
-    position: absolute;
-    right: 18px;
+    font-size: 12px;
     cursor: pointer;
-    top: 7px;
-    padding: 4px;
+    padding: 2px 10px;
+    position: absolute;
+    bottom: 4px;
+    right: 2px;
+    transition: opacity 0.2s ease-in-out;
 }
 
 #live-status:active {
@@ -90,6 +90,7 @@ hr {
     font-size: 11px;
     margin: 0px;
     text-align: left;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .twitter-container {
@@ -98,10 +99,15 @@ hr {
 
 .footer {
     margin: 0px 0px 5px 0px;
+    height: 16px;
 }
 
-.footer a {
+.footer .suspects-wrapper {
     font-size: 12px;
-    text-align: center;
-    display: block;
+    cursor: pointer;
+    padding: 2px 40px;
+    position: absolute;
+    bottom: 3px;
+    left: 125px;
+    transition: opacity 0.2s ease-in-out;
 }
