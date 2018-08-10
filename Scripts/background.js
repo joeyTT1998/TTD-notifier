@@ -4,6 +4,7 @@ var notificationSound = new Audio("sounds/live.mp3");
 
 localStorage.isLive = false;
 localStorage.playNotificationSound = true;
+localStorage.notificationVol = 40;
 
 var myAlarm = {
     delayInMinutes: 1,
@@ -37,7 +38,7 @@ const displayNotificaton = function () {
     });
 
     if(JSON.parse(localStorage.playNotificationSound) === true){
-        notificationSound.volume = 0.5;
+        notificationSound.volume = JSON.parse(localStorage.notificationVol) / 100;
         notificationSound.play();
     }
 
@@ -80,7 +81,6 @@ const checkIsLive = function () {
                 if (JSON.parse(localStorage.isLive) === false) {
                     console.log("Brandon is online");
                     localStorage.isLive = true;
-                    displayNotificaton();
 
                     updateBadge("LIVE!");
                 }
