@@ -7,16 +7,21 @@
 </head>
 
 <body>
-
     <form id="options">
-        <label>
-            Play sound on notification
-            <input type="checkbox" name="playSound">
-        </label>
-        <label>
-            Volume
-            <input type="range" min="1" max="100" value="50" class="slider" id="volumeRange">
-        </label>
+        <table>
+            <tr>
+                <th>Notifications</th>
+            </tr>
+            <tr>
+                <td>Play sound on notification</td>
+                <td><input type="checkbox" name="playSound"></td>
+            </tr>
+            <tr>
+                <td><span>Notification volume</span></td>
+                <td><input type="range" min="0" max="100" value="40" id="volumeRange"></td>
+                <td><output id="volumeLabel"></output></td>
+            </tr>
+        </table>
     </form>
 
     <script src="options.js"></script>
