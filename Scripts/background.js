@@ -5,6 +5,7 @@ var notificationSound = new Audio("sounds/live.mp3");
 localStorage.isLive = false;
 localStorage.playNotificationSound = true;
 localStorage.notificationVol = 40;
+localStorage.iconThemeDark = 0;
 
 var myAlarm = {
     delayInMinutes: 1,
