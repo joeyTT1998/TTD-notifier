@@ -1,1 +1,19 @@
+body, html{
+    font-family: 'Open Sans', sans-serif;
+    background: #263238;
+    color: #ffffff;
+    font-size: 14px;
+}
 
+th{
+    font-size: 20px;
+}
+
+th, td{
+    padding: 4px;
+}
+
+output{
+    padding: 0px;
+    margin: 0px 0px 0px 8px;
+}
