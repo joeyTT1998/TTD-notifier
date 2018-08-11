@@ -93,6 +93,8 @@ const checkIfLive = function () {
                     console.log("Brandon is online");
                     localStorage.isLive = true;
                     updateBadge("LIVE!");
+
+                    displayNotificaton();
                 }
             } else {
                 console.log("Brandon is offline");
