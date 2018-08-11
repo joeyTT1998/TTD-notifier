@@ -7,14 +7,10 @@ localStorage.setItem("playNotificationSound", true);
 localStorage.setItem("notificationVol", 35);
 localStorage.setItem("iconTheme", 0);
 
-var myAlarm = {
+const myAlarm = {
     delayInMinutes: 1,
     periodInMinutes: 1
 };
-
-chrome.browserAction.setBadgeBackgroundColor({
-    "color": "red"
-});
 
 chrome.alarms.create("liveCheckTimer", myAlarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
@@ -37,7 +33,7 @@ chrome.contextMenus.create({
     type: "checkbox",
     checked: JSON.parse(localStorage.playNotificationSound),
     contexts: ["browser_action"],
-    onclick: function() {
+    onclick: function () {
         localStorage.playNotificationSound = !JSON.parse(localStorage.playNotificationSound);
     }
 });
@@ -63,6 +59,10 @@ const displayNotificaton = function () {
         requireInteraction: true
     });
 }
+
+chrome.browserAction.setBadgeBackgroundColor({
+    "color": "red"
+});
 
 const updateBadge = function (message) {
     chrome.browserAction.setBadgeText({
