@@ -2,10 +2,10 @@
 
 var notificationSound = new Audio("sounds/live.mp3");
 
-localStorage.isLive = false;
-localStorage.playNotificationSound = true;
-localStorage.notificationVol = 40;
-localStorage.iconThemeDark = 0;
+localStorage.setItem("isLive", false);
+localStorage.setItem("playNotificationSound", true);
+localStorage.setItem("notificationVol", 35);
+localStorage.setItem("iconTheme", 0);
 
 var myAlarm = {
     delayInMinutes: 1,
@@ -29,6 +29,17 @@ chrome.notifications.onClicked.addListener(function (notificationId) {
     });
 
     chrome.notifications.clear(notificationId);
+});
+
+chrome.contextMenus.create({
+    id: "notifSound",
+    title: "Play notification sound",
+    type: "checkbox",
+    checked: JSON.parse(localStorage.playNotificationSound),
+    contexts: ["browser_action"],
+    onclick: function() {
+        localStorage.playNotificationSound = !JSON.parse(localStorage.playNotificationSound);
+    }
 });
 
 const displayNotificaton = function () {
