@@ -1,7 +1,7 @@
 ﻿{
     "name": "TTD Notifier",
     "short_name": "TTD",
-    "description": "A chrome extension that shows you updates from Hampton Brandon",
+    "description": "A Chrome extension that shows you updates from Hampton Brandon",
     "version": "1.08",
     "manifest_version": 2,
     "browser_action": {
@@ -27,5 +27,5 @@
         "open_in_tab": false
     },
     "content_security_policy": "script-src 'self' https://platform.twitter.com https://cdn.syndication.twimg.com; object-src 'self'",
-    "permissions": ["alarms", "notifications", "storage", "https://suspects.me/*"]
+    "permissions": ["alarms", "notifications", "storage", "https://suspects.me/*", "contextMenus"]
 }
