@@ -1,21 +1,25 @@
-body, html{
+body,
+html {
     font-family: 'Open Sans', sans-serif;
-    background: #263238;
-    color: #ffffff;
+    background: #11242B;
+    color: whitesmoke;
     font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-th{
+th {
     font-size: 20px;
     text-align: left;
     text-decoration: underline;
 }
 
-th, td{
+th,
+td {
     padding: 4px;
 }
 
-output{
+output {
     padding: 0px;
     margin: 0px 0px 0px 8px;
 }
