@@ -9,12 +9,15 @@ html {
 }
 
 th {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
-    text-decoration: underline;
+    padding-bottom: 4px;
 }
 
-th,
+th:nth-child(1) {
+    padding-top: 20px;
+}
+
 td {
     padding: 4px;
 }
@@ -22,4 +25,16 @@ td {
 output {
     padding: 0px;
     margin: 0px 0px 0px 8px;
+}
+
+a:link,
+a:visited {
+    color: black;
+    outline: 0;
+    text-decoration: none;
+    margin: 0px;
+}
+
+button {
+    cursor: pointer;
 }
