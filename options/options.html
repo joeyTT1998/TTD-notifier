@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Options</title>
     <link href="options.css" rel="stylesheet" type="text/css">
@@ -13,11 +12,11 @@
                 <th>Notifications</th>
             </tr>
             <tr>
-                <td>Play sound on notification</td>
+                <td>Play sound on notification:</td>
                 <td><input type="checkbox" name="playSound"></td>
             </tr>
             <tr>
-                <td><span>Notification volume</span></td>
+                <td><span>Notification volume:</span></td>
                 <td><input type="range" min="0" max="100" value="40" id="volumeRange"></td>
                 <td><output id="volumeLabel"></output></td>
             </tr>
@@ -25,17 +24,22 @@
                 <th>Icons</th>
             </tr>
             <tr>
-                <td rowspan="2">Icon theme</td>
+                <td>Icon theme:</td>
                 <td>
                     <select id="iconTheme">
-                        <option value="dark">Dark Icon</option>
-                        <option value="light">Light Icon</option>
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td><td></td>
+                <td>
+                    <button id="btnClose">Close</button>
                 </td>
             </tr>
         </table>
     </form>
-
     <script src="options.js"></script>
 </body>
 
