@@ -8,7 +8,7 @@ var getLastSeen = function() {
         return Math.round(mins) + "m ago";
     }
     else if(hours >= 24){
-        return Math.round(hours / 24) + "d ago";
+        return "~" + Math.floor(hours / 24) + "d ago";
     }
     else {
         return Math.round(hours)+ "h ago";
@@ -16,15 +16,11 @@ var getLastSeen = function() {
 }
 
 var updateOnlineStatus = function() {
-    let liveStatus = document.getElementById("live-status");
-    let lastSeenStatus = document.getElementById("last-seen");
-
-    console.log(getLastSeen());
     if (JSON.parse(localStorage.isLive)) {
-        lastSeenStatus.style.display = "none";
+        document.getElementById("last-seen").style.display = "none";
     } else {
-        lastSeenStatus.textContent = "Last Seen: " + getLastSeen();
-        liveStatus.style.display = "none";
+        document.getElementById("last-seen").textContent = "Last seen: " + getLastSeen();
+        document.getElementById("live-status").style.display = "none";
     }
 }
 
