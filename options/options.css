@@ -1,1 +1,40 @@
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+    background: #11242B;
+    color: whitesmoke;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
+th {
+    font-size: 18px;
+    text-align: left;
+    padding-bottom: 4px;
+}
+
+th:nth-child(1) {
+    padding-top: 20px;
+}
+
+td {
+    padding: 4px;
+}
+
+output {
+    padding: 0px;
+    margin: 0px 0px 0px 8px;
+}
+
+a:link,
+a:visited {
+    color: black;
+    outline: 0;
+    text-decoration: none;
+    margin: 0px;
+}
+
+button {
+    cursor: pointer;
+}

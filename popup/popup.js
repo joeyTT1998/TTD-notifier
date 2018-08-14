@@ -1,25 +1,28 @@
 document.getElementById("options").addEventListener("click", openOptions);
 
-var getLastSeen = function() {
+var getLastSeen = function () {
     let hours = ((new Date().getTime() - (new Date(localStorage.lastSeen)).getTime()) / (1000 * 60 * 60));
     let mins = (hours * 10) * 6 + 3;
-    return hours < 1.0 ? Math.round(mins) + "m ago" : Math.round(hours)+ "h ago";
-}
 
-var updateOnlineStatus = function() {
-    let liveStatus = document.getElementById("live-status");
-    let lastSeenStatus = document.getElementById("last-seen");
-
-    console.log(getLastSeen());
-    if (JSON.parse(localStorage.isLive)) {
-        lastSeenStatus.style.display = "none";
+    if (hours < 1.0) {
+        return Math.round(mins) + "m ago";
+    } else if (hours >= 24) {
+        return "~" + Math.floor(hours / 24) + "d ago";
     } else {
-        lastSeenStatus.textContent = "Last Seen: " + getLastSeen();
-        liveStatus.style.display = "none";
+        return Math.round(hours) + "h ago";
     }
 }
 
-function openOptions(){
+var updateOnlineStatus = function () {
+    if (JSON.parse(localStorage.isLive)) {
+        document.getElementById("last-seen").style.display = "none";
+    } else {
+        document.getElementById("last-seen").textContent = "Last seen: " + getLastSeen();
+        document.getElementById("live-status").style.display = "none";
+    }
+}
+
+function openOptions() {
     chrome.runtime.openOptionsPage();
 }
 

@@ -1,15 +1,15 @@
 body,
 html {
     font-family: 'Open Sans', sans-serif;
-    background: #263238;
-    color: #ffffff;
+    background: #11242B;
+    color: whitesmoke;
     width: 390px;
     margin: 0px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-a:focus{
+a:focus {
     outline: 0;
 }
 
@@ -35,14 +35,13 @@ a:visited {
     text-align: center;
 }
 
-.hover-fade:hover{
+.hover-fade:hover {
     opacity: 0.4;
 }
 
-
 .flex .fas,
 .flex .fab {
-    font-size: 30px;
+    font-size: 28px;
     color: whitesmoke;
 }
 
@@ -53,43 +52,46 @@ a:visited {
 hr {
     border: none;
     height: 0.5px;
-    background-color:whitesmoke; 
+    background-color: whitesmoke;
     margin: 0px;
 }
 
-.header{
-    margin: 0px;  
+.header {
+    margin: 0px;
     padding: 9px 15px 6px 15px;
 }
 
-#live-status{
+#live-status {
     font-size: 14px;
     font-weight: bolder;
-    margin: 0px;
+    margin: 0px 0px 0px 148px;
     background-color: red;
     color: whitesmoke;
-    padding: 3px 4px 3px 6px;
+    padding: 4px 4px 4px 6px;
     border: none;
     border-radius: 15px;
+    text-shadow: 1px 1px 10px #fff,
 }
 
-#options{
-    font-size: 13px;
-    position: absolute;
-    right: 18px;
+#options {
+    font-size: 12px;
     cursor: pointer;
-    top: 7px;
-    padding: 4px;
+    padding: 2px 10px;
+    position: absolute;
+    bottom: 4px;
+    right: 2px;
+    transition: opacity 0.2s ease-in-out;
 }
 
 #live-status:active {
-  transform: translateY(1px);
+    transform: translateY(1px);
 }
 
-#last-seen{
+#last-seen {
     font-size: 11px;
     margin: 0px;
     text-align: left;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .twitter-container {
@@ -98,10 +100,15 @@ hr {
 
 .footer {
     margin: 0px 0px 5px 0px;
+    height: 16px;
 }
 
-.footer a {
+.footer .suspects-wrapper {
     font-size: 12px;
-    text-align: center;
-    display: block;
+    cursor: pointer;
+    padding: 2px 40px;
+    position: absolute;
+    bottom: 3px;
+    left: 125px;
+    transition: opacity 0.2s ease-in-out;
 }

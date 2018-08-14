@@ -2,22 +2,20 @@
 
 var notificationSound = new Audio("sounds/live.mp3");
 
-localStorage.isLive = false;
-localStorage.playNotificationSound = true;
+localStorage.setItem("isLive", false);
+localStorage.setItem("playNotificationSound", true);
+localStorage.setItem("notificationVol", 35);
+localStorage.setItem("iconTheme", 0);
 
-var myAlarm = {
+const myAlarm = {
     delayInMinutes: 1,
     periodInMinutes: 1
 };
 
-chrome.browserAction.setBadgeBackgroundColor({
-    "color": "red"
-});
-
 chrome.alarms.create("liveCheckTimer", myAlarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === "liveCheckTimer") {
-        checkIsLive();
+        checkIfLive();
     }
 });
 
@@ -29,6 +27,17 @@ chrome.notifications.onClicked.addListener(function (notificationId) {
     chrome.notifications.clear(notificationId);
 });
 
+chrome.contextMenus.create({
+    id: "notifSound",
+    title: "Play notification sound",
+    type: "checkbox",
+    checked: JSON.parse(localStorage.playNotificationSound),
+    contexts: ["browser_action"],
+    onclick: function () {
+        localStorage.playNotificationSound = !JSON.parse(localStorage.playNotificationSound);
+    }
+});
+
 const displayNotificaton = function () {
     let currentTime = new Date().toLocaleTimeString("en-US", {
         hour12: false,
@@ -36,8 +45,8 @@ const displayNotificaton = function () {
         minute: "numeric"
     });
 
-    if(JSON.parse(localStorage.playNotificationSound) === true){
-        notificationSound.volume = 0.5;
+    if (JSON.parse(localStorage.playNotificationSound) === true) {
+        notificationSound.volume = JSON.parse(localStorage.notificationVol) / 100;
         notificationSound.play();
     }
 
@@ -50,6 +59,10 @@ const displayNotificaton = function () {
         requireInteraction: true
     });
 }
+
+chrome.browserAction.setBadgeBackgroundColor({
+    "color": "red"
+});
 
 const updateBadge = function (message) {
     chrome.browserAction.setBadgeText({
@@ -66,33 +79,30 @@ const updateIcon = function () {
     });
 }
 
-const checkIsLive = function () {
+const checkIfLive = function () {
     fetch("https://suspects.me/api/streamer/hmptn/stream")
         .then(function (response) {
             return response.json();
         })
         .then(function (res) {
             console.log(res);
-
             if (res.error) {
                 console.error(res.message || "Streamer not found");
             } else if (res.data && res.data.isLive) {
                 if (JSON.parse(localStorage.isLive) === false) {
                     console.log("Brandon is online");
                     localStorage.isLive = true;
-                    displayNotificaton();
-
                     updateBadge("LIVE!");
+
+                    displayNotificaton();
                 }
             } else {
                 console.log("Brandon is offline");
                 localStorage.isLive = false;
                 localStorage.lastSeen = res.data.lastUpdate;
-
                 updateBadge("");
             }
         });
-
 }
 
-checkIsLive();
+checkIfLive();
